@@ -1,5 +1,7 @@
 FactoryApp::Application.routes.draw do
-  get "dashboard/index"
+  namespace :backend do
+    root to: 'dashboard#index'
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
