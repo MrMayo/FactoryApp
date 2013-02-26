@@ -31,7 +31,6 @@ end
 
 group :test do
   gem 'factory_girl_rails'
-  gem 'database_cleaner'
   gem 'capybara', '~> 1.1.4'
   gem 'rb-fsevent', require: false
   gem 'growl'

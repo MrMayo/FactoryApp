@@ -1,42 +1,43 @@
 class Backend::UsersController < Backend::ApplicationController
-  # def index
-  #   @users = User.all
-  # end
-  # 
-  # def show
-  #   @user = User.find(params[:id])
-  # end
-  
-  def new
-    # @user = User.new
+  def index
+    @users = User.all
   end
   
-  # def edit
-  #   @user = User.find(params[:id])
-  # end
-  # 
-  # def create
-  #   @user = User.new(params[:backend_user])
-  #   if @user.save
-  #     redirect_to @user, notice: 'User was successfully created.'
-  #   else
-  #     render action: "new"
-  #   end
-  # end
-  # 
-  # def update
-  #   @user = User.find(params[:id])
-  #   if @backend_user.update_attributes(params[:backend_user])
-  #     redirect_to @backend_user, notice: 'User was successfully updated.'
-  #   else
-  #     render action: "edit"
-  #   end
-  # end
-  # 
-  # def destroy
-  #   @backend_user = User.find(params[:id])
-  #   @backend_user.destroy
-  #   redirect_to backend_users_url
-  #   end
-  # end
+  def show
+    @user = User.find(params[:id])
+  end
+  
+  def new
+    @user = User.new
+  end
+  
+  def edit
+    @user = User.find(params[:id])
+  end
+  
+  def create
+    @user = User.new(params[:user])
+    if @user.save
+      flash[:success] = 'User was successfully created.'
+      redirect_to backend_user_path(@user)
+    else
+      render new_backend_user_path
+    end
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      flash[:success] = 'User was successfully updated.'
+      redirect_to backend_user_path(@user)
+    else
+      render edit_backend_user_path
+    end
+  end
+  
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to backend_users_url
+  end
 end

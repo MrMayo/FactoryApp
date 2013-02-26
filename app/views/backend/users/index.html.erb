@@ -1,23 +1,24 @@
-<h1>Listing backend_users</h1>
+<h1>User List</h1>
 
 <table>
   <tr>
+    <th>ID.</th>
     <th>Name</th>
     <th>Email</th>
-    <th>Password digest</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Created At</th>
+    <th>Updated At</th>
   </tr>
 
-<% @backend_users.each do |backend_user| %>
+<% @users.each do |user| %>
   <tr>
-    <td><%= backend_user.name %></td>
-    <td><%= backend_user.email %></td>
-    <td><%= backend_user.password_digest %></td>
-    <td><%= link_to 'Show', backend_user %></td>
-    <td><%= link_to 'Edit', edit_backend_user_path(backend_user) %></td>
-    <td><%= link_to 'Destroy', backend_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= user.id %></td>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.created_at %></td>
+    <td><%= user.updated_at %></td>
+    <td><%= link_to 'Show', backend_user_path(user) %></td>
+    <td><%= link_to 'Edit', edit_backend_user_path(user) %></td>
+    <td><%= link_to 'Destroy', backend_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

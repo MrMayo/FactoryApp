@@ -15,16 +15,6 @@ Spork.prefork do
     config.infer_base_class_for_anonymous_controllers = false
     config.order = "random"
     
-    config.before(:suite) do
-      DatabaseCleaner.strategy = :transaction
-      DatabaseCleaner.clean_with(:truncation)
-    end
-    config.before(:each) do
-      DatabaseCleaner.start
-    end
-    config.after(:each) do
-      DatabaseCleaner.clean
-    end
   end
 end
 

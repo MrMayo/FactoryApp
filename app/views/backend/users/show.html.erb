@@ -1,20 +1,26 @@
-<p id="notice"><%= notice %></p>
+<% provide(:title, 'User Page') %>
+<h1><%= @user.name %></h1>
 
+<p>
+  <b>ID:</b>
+  <%= @user.id %>
+</p>
 <p>
   <b>Name:</b>
-  <%= @backend_user.name %>
+  <%= @user.name %>
 </p>
-
 <p>
   <b>Email:</b>
-  <%= @backend_user.email %>
+  <%= @user.email %>
 </p>
-
 <p>
-  <b>Password digest:</b>
-  <%= @backend_user.password_digest %>
+  <b>Created at:</b>
+  <%= @user.created_at %>
+</p>
+<p>
+  <b>Updated at:</b>
+  <%= @user.updated_at %>
 </p>
 
-
-<%= link_to 'Edit', edit_backend_user_path(@backend_user) %> |
+<%= link_to 'Edit', edit_backend_user_path(@user) %> |
 <%= link_to 'Back', backend_users_path %>
