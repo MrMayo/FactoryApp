@@ -1,6 +1,7 @@
-<h1>Editing backend_user</h1>
+<% provide(:title, 'Edit User') %>
+<h1><%= "Editing #{@user.name}" %></h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @backend_user %> |
-<%= link_to 'Back', backend_users_path %>
+<%= link_to 'Index', backend_users_path %>

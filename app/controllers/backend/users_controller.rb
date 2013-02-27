@@ -18,7 +18,7 @@ class Backend::UsersController < Backend::ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:success] = 'User was successfully created.'
+      flash[:notice] = 'User was successfully created.'
       redirect_to backend_user_path(@user)
     else
       render new_backend_user_path
@@ -28,7 +28,7 @@ class Backend::UsersController < Backend::ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      flash[:success] = 'User was successfully updated.'
+      flash[:notice] = 'User was successfully updated.'
       redirect_to backend_user_path(@user)
     else
       render edit_backend_user_path
