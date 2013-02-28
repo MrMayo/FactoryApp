@@ -18,6 +18,7 @@ class Backend::UsersController < Backend::ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      sign_in @user
       flash[:notice] = 'User was successfully created.'
       redirect_to backend_user_path(@user)
     else
