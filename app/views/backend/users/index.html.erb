@@ -13,17 +13,21 @@
 <% @users.each do |user| %>
   <tr>
     <td><%= user.id %></td>
-    <td><%= user.name %></td>
+    <td><%= link_to user.name, backend_user_path(user) %></td>
     <td><%= user.email %></td>
     <td><%= user.created_at %></td>
     <td><%= user.updated_at %></td>
     <td><%= link_to 'Show', backend_user_path(user) %></td>
     <td><%= link_to 'Edit', edit_backend_user_path(user) %></td>
-    <td><%= link_to 'Destroy', backend_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if current_user.admin? && !current_user?(user) %>
+      <td><%= link_to 'Delete', backend_user_path(user),
+                                 method: :delete,
+                                 data: { confirm: 'Are you sure?' } %></td>
+    <% end%>
   </tr>
 <% end %>
 </table>
 
 <br />
-
+<%= paginate @users %>
 <%= link_to 'New User', new_backend_user_path %>

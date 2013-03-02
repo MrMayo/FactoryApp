@@ -6,7 +6,7 @@ class Backend::SessionsController < Backend::ApplicationController
     user = User.find_by_email(params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       sign_in user
-      redirect_to backend_root_path
+      redirect_back_or backend_root_path
     else
       flash.now[:error] = 'Invalid email/password combination'
       render 'new'

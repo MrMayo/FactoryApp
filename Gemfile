@@ -2,6 +2,11 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.12'
 gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'jquery-rails'
+gem 'kaminari'
+gem 'carrierwave'
+gem 'rmagick'
+gem 'faker'
 gem 'pg'
 
 group :assets do
@@ -10,19 +15,12 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
-gem 'carrierwave'
-gem 'rmagick'
-
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 2.11.0'
+  gem 'spork'
   gem 'guard-rspec'
   gem 'guard-spork'
-  gem 'spork'
-end
-
-group :development do
   gem 'guard-annotate'
   gem 'guard-livereload'
   gem 'better_errors'
